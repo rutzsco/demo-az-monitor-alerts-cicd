@@ -8,9 +8,8 @@ pool:
 
 steps:
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: Infrastructure'
+- task: PublishPipelineArtifact@1
   inputs:
-    PathtoPublish: Infrastructure
-    ArtifactName: Infrastructure
+    targetPath: 'Infrastructure'
+    artifact: 'Infrastructure'
     publishLocation: 'pipeline'
