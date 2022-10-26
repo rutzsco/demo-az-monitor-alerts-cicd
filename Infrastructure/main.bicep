@@ -37,7 +37,7 @@ resource metricAlertsDBCPU 'microsoft.insights/metricAlerts@2018-03-01' = {
     criteria: {
       allOf: [
         {
-          threshold: 70
+          threshold: 90
           name: 'Metric1'
           metricNamespace: 'microsoft.sql/servers/databases'
           metricName: 'cpu_percent'
