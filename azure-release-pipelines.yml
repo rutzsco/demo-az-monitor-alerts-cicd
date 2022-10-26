@@ -22,6 +22,8 @@ stages:
     environmentName: 'CI'
     actionGroupName: 'RUTZSCOOPSCI'
     actionGroupEmail: 'scrutz@microsoft.com'
+    sqlServerName: 'rutzscosqldb'
+    databaseName: 'DB001'
 - template: azure-release-pipelines-stage-template.yml
   parameters:
     stageName: 'QA'
@@ -33,4 +35,6 @@ stages:
     environmentName: 'QA'
     actionGroupName: 'RUTZSCOOPSQA'
     actionGroupEmail: 'scrutz@microsoft.com'
+    sqlServerName: 'rutzscosqldbqa'
+    databaseName: 'DB001'
 

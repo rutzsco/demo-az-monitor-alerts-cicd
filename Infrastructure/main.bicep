@@ -1,8 +1,8 @@
 param environmentName string
 param actionGroupName string
 param actionGroupEmail string
-param sqlServerName string = 'rutzscosqldb'
-param databaseName string = 'DB001'
+param sqlServerName string
+param databaseName string
 
 resource actionGroup 'Microsoft.Insights/actionGroups@2021-09-01' = {
   name: actionGroupName
@@ -20,7 +20,7 @@ resource actionGroup 'Microsoft.Insights/actionGroups@2021-09-01' = {
   }
 }
 
-var alertRuleName = 'metricAlertDBCPU-${environmentName}-alert'
+var alertRuleName = 'DBOPS-${environmentName} - CPU Alert'
 var sqlServerExternalId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/${resourceGroup().name}/providers/Microsoft.Sql/servers/${sqlServerName}'
 
 resource metricAlertsDBCPU 'microsoft.insights/metricAlerts@2018-03-01' = {
