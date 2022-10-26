@@ -14,12 +14,23 @@ stages:
 - template: azure-release-pipelines-stage-template.yml
   parameters:
     stageName: 'CI'
-    environment: 'API'
+    environment: 'QA'
     azureSubscription: ${{ variables.azureSubscription }}
     resourceGroupName: 'rutzsco-demo-observability-alerts'
     region: ${{ variables.region }}
     templateFile: '$(Pipeline.Workspace)/build/Infrastructure/main.bicep'
     environmentName: 'CI'
     actionGroupName: 'RUTZSCOOPSCI'
+    actionGroupEmail: 'scrutz@microsoft.com'
+- template: azure-release-pipelines-stage-template.yml
+  parameters:
+    stageName: 'QA'
+    environment: 'QA'
+    azureSubscription: ${{ variables.azureSubscription }}
+    resourceGroupName: 'rutzsco-demo-observability-alerts'
+    region: ${{ variables.region }}
+    templateFile: '$(Pipeline.Workspace)/build/Infrastructure/main.bicep'
+    environmentName: 'QA'
+    actionGroupName: 'RUTZSCOOPSQA'
     actionGroupEmail: 'scrutz@microsoft.com'
 
