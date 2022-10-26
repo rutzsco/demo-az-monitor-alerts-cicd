@@ -14,7 +14,9 @@ parameters:
 - name: actionGroupName
   default: ''
 - name: actionGroupEmail
-  default: ''  
+  default: ''
+- name: templateFile
+  default: ''
 
 stages:
   - stage: ${{ parameters.stageName }}

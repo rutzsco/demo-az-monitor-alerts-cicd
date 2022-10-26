@@ -22,7 +22,7 @@ resource actionGroup 'Microsoft.Insights/actionGroups@2021-09-01' = {
   }
 }
 
-var alertRuleName string = '${uniqueString(resourceGroup().id)}-alert'
+var alertRuleName = '$demoalert-{environmentName}-alert'
 resource alertProcessingRule 'Microsoft.AlertsManagement/actionRules@2021-08-08' = {
   name: alertRuleName
   location: location
