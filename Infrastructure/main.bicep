@@ -3,6 +3,7 @@ param actionGroupName string
 param actionGroupEmail string
 param sqlServerName string
 param databaseName string
+param threshold int
 
 resource actionGroup 'Microsoft.Insights/actionGroups@2021-09-01' = {
   name: actionGroupName
@@ -37,7 +38,7 @@ resource metricAlertsDBCPU 'microsoft.insights/metricAlerts@2018-03-01' = {
     criteria: {
       allOf: [
         {
-          threshold: 90
+          threshold: threshold
           name: 'Metric1'
           metricNamespace: 'microsoft.sql/servers/databases'
           metricName: 'cpu_percent'

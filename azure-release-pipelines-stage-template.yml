@@ -21,6 +21,8 @@ parameters:
   default: ''
 - name: databaseName
   default: ''
+- name: threshold
+  default: ''
 
 stages:
   - stage: ${{ parameters.stageName }}
@@ -45,4 +47,4 @@ stages:
                 scriptLocation: inlineScript
                 inlineScript: |
                   az group create --name ${{ parameters.resourceGroupName }} --location ${{ parameters.region }} 
-                  az deployment group create --resource-group ${{ parameters.resourceGroupName }} --template-file ${{ parameters.templateFile }} --parameters environmentName=${{ parameters.environmentName }} actionGroupName=${{ parameters.actionGroupName }} actionGroupEmail=${{ parameters.actionGroupEmail }} sqlServerName=${{ parameters.sqlServerName }} databaseName=${{ parameters.databaseName }}> outputs.json
+                  az deployment group create --resource-group ${{ parameters.resourceGroupName }} --template-file ${{ parameters.templateFile }} --parameters environmentName=${{ parameters.environmentName }} actionGroupName=${{ parameters.actionGroupName }} actionGroupEmail=${{ parameters.actionGroupEmail }} sqlServerName=${{ parameters.sqlServerName }} databaseName=${{ parameters.databaseName }} threshold=${{ parameters.threshold }}> outputs.json

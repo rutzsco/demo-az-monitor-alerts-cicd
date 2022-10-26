@@ -24,6 +24,7 @@ stages:
     actionGroupEmail: 'scrutz@microsoft.com'
     sqlServerName: 'rutzscosqldb'
     databaseName: 'DB001'
+    threshold: '70'
 - template: azure-release-pipelines-stage-template.yml
   parameters:
     stageName: 'QA'
@@ -37,4 +38,5 @@ stages:
     actionGroupEmail: 'scrutz@microsoft.com'
     sqlServerName: 'rutzscosqldbqa'
     databaseName: 'DB001'
+    threshold: '80'
 
