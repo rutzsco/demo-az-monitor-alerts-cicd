@@ -20,6 +20,6 @@ stages:
     region: ${{ variables.region }}
     templateFile: '$(Pipeline.Workspace)/build/Infrastructure/main.bicep'
     environmentName: 'CI'
-    actionGroupName: 'RUTZSCO_OPS_CI'
+    actionGroupName: 'RUTZSCOOPSCI'
     actionGroupEmail: 'scrutz@microsoft.com'
 
