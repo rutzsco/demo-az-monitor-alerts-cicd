@@ -8,7 +8,7 @@ param location string = resourceGroup().location
 
 resource actionGroup 'Microsoft.Insights/actionGroups@2021-09-01' = {
   name: actionGroupName
-  location: location
+  location: 'global'
   properties: {
     enabled: true
     groupShortName: actionGroupName
