@@ -1,0 +1,25 @@
+trigger: none
+
+resources:
+  pipelines:
+  - pipeline: build
+    source: 'Observability - Alerts - BUILD'
+  
+variables:
+  vmImageName: 'ubuntu-latest'
+  azureSubscription: 'Demo Account'
+  region: 'eastus'
+
+stages:
+- template: azure-release-pipelines-stage-template.yml
+  parameters:
+    stageName: 'CI'
+    environment: 'API'
+    azureSubscription: ${{ variables.azureSubscription }}
+    resourceGroupName: 'rutzsco-demo-observability-alerts'
+    region: ${{ variables.region }}
+    templateFile: '$(Pipeline.Workspace)/build/Infrastructure/main.bicep'
+    environmentName: 'CI'
+    actionGroupName: 'RUTZSCO_OPS_CI'
+    actionGroupEmail: 'scrutz@microsoft.com'
+
